@@ -1,0 +1,74 @@
+# User Management System - Comprehensive Project Specification
+
+## Project Overview
+A robust, secure, and scalable User Management System with advanced features and role-based access control.
+
+##Database Credentials: 
+ -Host: 'db4free.net' 
+ -User: 'hikaru' 
+ -Password: 'Hikaru132335' 
+ -Database: 'fluttercrud'
+
+## Technical Stack
+- **OS**: Fedora 41
+- **Backend**: Node.js
+- **Framework**: Strapi
+- **Database**: MySQL (db4free.net)
+  - Input validation
+  - Role-based access control
+
+## Architectural Improvements
+1. Separate Concerns
+   - Use modular architecture
+   - Implement service-layer pattern
+   - Separate routes, controllers, models, and middleware
+
+## Database Design
+### Users Table
+- id (PK, auto-increment)
+- username (unique, indexed)
+- email (unique, indexed)
+- password (hashed)
+- role_id (FK to roles)
+- created_at
+- updated_at
+- last_login
+
+### Inventory Table
+- id (PK)
+- user_id (FK to users)
+- item_name
+- quantity
+- price
+- status (active/inactive)
+- created_at
+- updated_at
+
+## API Endpoints Structure
+### Authentication
+- `POST /auth/register`
+- `POST /auth/login`
+- `POST /auth/refresh-token`
+- `POST /auth/forgot-password`
+- `POST /auth/reset-password`
+
+### User Management
+- `GET /users`
+- `GET /users/:id`
+- `PUT /users/:id`
+- `DELETE /users/:id`
+- `GET /users/profile`
+
+### Inventory Management
+- `POST /inventory`
+- `GET /inventory`
+- `GET /inventory/:id`
+- `PUT /inventory/:id`
+- `DELETE /inventory/:id`
+- `POST /inventory/consume`
+
+## Security Enhancements
+- Multi-factor Authentication
+- IP Whitelisting
+- Comprehensive Audit Logs
+- Automated Security Scanning
