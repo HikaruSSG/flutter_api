@@ -25,6 +25,12 @@
     },
     "quantity": {
       "type": "integer"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "records"
     }
   }
 }
